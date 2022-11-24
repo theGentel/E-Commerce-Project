@@ -1,0 +1,204 @@
+﻿@model E_Commerce.Models.ProductModel
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+<!-- page-title-box -->
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card m-b-20">
+                    <div class="card-body">
+                        <h2 class="mb-4 text-center">Product Form</h2>
+                        <div class="color-picker-inputs">
+                            <form id="SaveProduct" action="#" method="post" enctype="multipart/form-data">
+                                @Html.HiddenFor(a=> a.ProductID)
+                                @Html.HiddenFor(a=> a.Image)
+                                <div class="form-group">
+                                    <label class="control-label">CategoryID</label>
+                                    @Html.DropDownListFor(a => a.CategoryID, new SelectList(@ViewBag.Category, "CategoryID", "CategoryName"), "--Select Category--", new { @class = "form-control",onchange="GetSubCategories(this.value)" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">SubCategoryID</label>
+                                    @Html.DropDownListFor(a => a.SubCategoryID, new SelectList("", "SubCategoryID", "SubCategoryName"), "--Select SubCategory--", new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Product Name</label>
+                                    @Html.TextBoxFor(a => a.ProductName, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">ColorID</label>
+                                    @Html.DropDownListFor(a => a.ColorID, new SelectList(@ViewBag.Color, "ColorID", "ColorName"), "--Select Color--", new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Quantity</label>
+                                    @Html.TextBoxFor(a => a.Quantity, new { @class = "form-control", type = "number" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    @Html.TextBoxFor(a => a.Price, new { @class = "form-control", type = "price" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Status</label>
+                                    @Html.DropDownListFor(a => a.Status, new List<SelectListItem>() {
+                                   new SelectListItem(){Text = "--Select Item--" , Value="-1"},
+                                   new SelectListItem(){Text = "Active" , Value="1"},
+                                   new SelectListItem(){Text = "InActive" , Value="0"},
+                               }, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    @Html.TextBoxFor(a => a.ImageFile, new { @class = " dropify", type = "file", data_default_file = "/dropify/noimage.png" })
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" id="AddProduct" class=" btn btn-outline-primary">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+            <!-- end col -->
+        </div> <!-- end row -->
+
+    </div>
+    <!-- end container-fluid -->
+</div>
+<!-- end page content-->
+<div class="wrapper">
+
+    <!-- page-title-box -->
+
+    <div class="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card m-b-20">
+                        <div class="card-body">
+
+                            <h2 class="mb-4 text-center">Product Datatable</h2>
+
+                            <div id="divload">
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+    </div>
+    <!-- end page content-->
+</div>
+@section script{
+    <script>
+        $(document).ready(function () {
+            $(".dropify").dropify();
+            SubCategoryList();
+        });
+
+
+
+                $('#AddProduct').click(function (event) {
+                event.preventDefault();
+                var formData = new FormData(document.getElementById("SaveProduct"));
+                $.ajax({
+                    url: '@Url.Action("Save", "Product")',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: function (res) {
+                        if (res == 1) {
+                            alert("Data Saved");
+                            SubCategoryList();
+                        }
+                        else {
+                            alert("something went wrong");
+                        }
+                    }
+                });
+                return false;
+           });
+
+
+
+        function SubCategoryList() {
+            $.ajax({
+                type: 'Get',
+                url: '@Url.Action("listProduct", "Product")',
+                success: function (data) {
+                    $("#divload").html(data);
+                   // $("#tableCategory").DataTable();
+                }
+            });
+        }
+
+        function Delete(id, ImageName) {
+            $.ajax({
+                type: 'Post',
+                url: '@Url.Action("DeleteProduct","Product")',
+                data: { id: id, ImageName: ImageName },
+                success: function (data) {
+                    if (data == 1) {
+                        SubCategoryList();
+                    }
+                }
+            });
+        }
+
+
+
+        function GetSubCategories(CategoryId) {
+            //alert(CategoryId);
+            var DropDown = $("#SubCategoryID");
+              $.ajax({
+                  type: 'Get',
+                  url: '@Url.Action("SubCategories","Product")',
+                  data: { CategoryId: CategoryId },
+                  success: function (res) {
+                      DropDown.empty();
+                      $.each(res, function (val, text) {
+                          /console.log(val +""+text.cateId+""+text.Category);/
+                          DropDown.append($("<option/>").val(text.SubCategoryID).text(text.SubCategoryName));
+                      });
+                  }
+              });
+        }
+
+
+
+        function Edit(id) {
+            $.ajax({
+                type: 'Get',
+                url: '@Url.Action("Edit","Product")',
+                data: { ProductID: id },
+                success: function (data) {
+                    $("#CategoryID").val(data.CategoryId);
+                    $("#SubCategoryID").val(data.SubCategoryID);
+                    $("#ProductID").val(data.processID);
+                    $("#ProductName").val(data.ProductName);
+                    $("#ColorID").val(data.ColorID);
+                    $("#Quantity").val(data.Quantity);
+                    $("#Price").val(data.Price);
+                    $("#Status").val(data.Status);
+                    $('.dropify - render > ').attr('src', data.Image);
+                    $("#Image").val(data.Image);
+                }
+            })
+        }
+
+
+
+
+
+
+    </script>
+}

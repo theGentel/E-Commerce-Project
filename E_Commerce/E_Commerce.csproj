@@ -1,0 +1,1823 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BF4DB84E-6DBC-4F4F-A937-9ED4CCAA42C4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>E_Commerce</RootNamespace>
+    <AssemblyName>E_Commerce</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44321</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ColorController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\ManagementController.cs" />
+    <Compile Include="Controllers\MyAccountController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShopDefaultController.cs" />
+    <Compile Include="Controllers\SingleProductController.cs" />
+    <Compile Include="Controllers\SubCategoryController.cs" />
+    <Compile Include="Controllers\UserLoginController.cs" />
+    <Compile Include="Controllers\UserLoginRegisterController.cs" />
+    <Compile Include="Controllers\WishlistController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryModel.cs" />
+    <Compile Include="Models\ColorModel.cs" />
+    <Compile Include="Models\MyDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\SubCategoryModel.cs" />
+    <Compile Include="Models\tblAdminRegister.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCart.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblCategory.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblColor.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProduct.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRoles.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblStatus.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSubCategory.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserLogin.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUserRegister.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblWishlist.cs">
+      <DependentUpon>MyDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserLoginModel.cs" />
+    <Compile Include="Models\UserRegisterModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\icons.css" />
+    <Content Include="Content\assets\css\metismenu.min.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\css\typicons.css" />
+    <Content Include="Content\assets\fonts\dripicons-v2.svg" />
+    <Content Include="Content\assets\fonts\fa-brands-400.svg" />
+    <Content Include="Content\assets\fonts\fa-regular-400.svg" />
+    <Content Include="Content\assets\fonts\fa-solid-900.svg" />
+    <Content Include="Content\assets\fonts\ionicons.svg" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="Content\assets\fonts\themify.svg" />
+    <Content Include="Content\assets\fonts\typicons.svg" />
+    <Content Include="Content\assets\icons\css\dripicons.css" />
+    <Content Include="Content\assets\icons\css\materialdesignicons.css" />
+    <Content Include="Content\assets\icons\css\materialdesignicons.min.css" />
+    <Content Include="Content\assets\icons\css\themify-icons.css" />
+    <Content Include="Content\assets\icons\css\typicons.css" />
+    <Content Include="Content\assets\icons\dripicons\fonts\dripicons-v2.svg" />
+    <Content Include="Content\assets\icons\fontawesome\css\fa-brands.css" />
+    <Content Include="Content\assets\icons\fontawesome\css\fa-regular.css" />
+    <Content Include="Content\assets\icons\fontawesome\css\fa-solid.css" />
+    <Content Include="Content\assets\icons\fontawesome\css\fontawesome-all.css" />
+    <Content Include="Content\assets\icons\fontawesome\css\fontawesome.css" />
+    <Content Include="Content\assets\icons\ionicons\css\ionicons.css" />
+    <Content Include="Content\assets\icons\ionicons\css\ionicons.min.css" />
+    <Content Include="Content\assets\icons\ionicons\css\_ionicons-variables.css" />
+    <Content Include="Content\assets\icons\ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\assets\icons\ionicons\png\512\alert-circled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\alert.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-add-contact.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-add.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-alarm.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-archive.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-arrow-back.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-arrow-down-left.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-arrow-down-right.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-arrow-up-left.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-arrow-up-right.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-battery.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-book.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-calendar.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-call.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-camera.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-chat.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-checkmark.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-clock.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-close.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-contact.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-contacts.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-data.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-developer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-display.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-download.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-dropdown.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-earth.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-folder.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-forums.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-friends.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-hand.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-image.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-inbox.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-information.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-keypad.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-lightbulb.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-locate.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-location.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-mail.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-microphone.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-mixer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-more.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-note.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-playstore.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-printer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-promotion.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-reminder.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-remove.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-search.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-send.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-settings.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-share.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-social-user.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-social.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-sort.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-star.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-stopwatch.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-storage.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-system-back.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-system-home.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-system-windows.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-timer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-trash.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-volume.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\android-wifi.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\archive.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-down-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-down-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-down-c.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-expand.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-graph-down-left.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-graph-down-right.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-graph-up-left.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-graph-up-right.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-left-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-left-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-left-c.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-move.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-resize.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-return-left.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-return-right.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-right-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-right-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-right-c.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-shrink.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-swap.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-up-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-up-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\arrow-up-c.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\at.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\bag.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\battery-charging.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\battery-empty.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\battery-full.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\battery-half.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\battery-low.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\beaker.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\beer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\bluetooth.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\bookmark.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\briefcase.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\bug.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\calculator.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\calendar.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\camera.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\card.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chatbox-working.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chatbox.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chatboxes.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chatbubble-working.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chatbubble.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chatbubbles.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\checkmark-circled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\checkmark-round.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\checkmark.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chevron-down.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chevron-left.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chevron-right.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\chevron-up.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\clipboard.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\clock.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\close-circled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\close-round.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\close.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\cloud.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\code-download.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\code-working.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\code.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\coffee.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\compass.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\compose.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\connection-bars.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\contrast.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\disc.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\document-text.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\document.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\drag.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\earth.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\edit.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\egg.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\eject.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\email.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\eye-disabled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\eye.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\female.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\filing.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\film-marker.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\flag.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\flash-off.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\flash.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\flask.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\folder.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\fork-repo.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\fork.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\forward.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\game-controller-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\game-controller-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\gear-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\gear-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\grid.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\hammer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\headphone.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\heart.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\help-buoy.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\help-circled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\help.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\home.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\icecream.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\icon-social-google-plus-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\icon-social-google-plus.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\image.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\images.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\information-circled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\information.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ionic.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-alarm-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-alarm.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-albums-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-albums.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-back.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-down.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-forward.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-left.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-right.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-thin-down.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-thin-left.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-thin-right.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-thin-up.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-arrow-up.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-at-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-at.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-bell-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-bell.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-bolt-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-bolt.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-bookmarks-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-bookmarks.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-box-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-box.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-briefcase-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-briefcase.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-browsers-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-browsers.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-calculator-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-calculator.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-calendar-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-calendar.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-camera-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-camera.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cart-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cart.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-chatboxes-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-chatboxes.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-chatbubble-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-chatbubble.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-checkmark-empty.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-checkmark-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-checkmark.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-circle-filled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-circle-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-clock-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-clock.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-close-empty.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-close-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-close.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloud-download-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloud-download.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloud-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloud-upload-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloud-upload.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloud.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloudy-night-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloudy-night.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloudy-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cloudy.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cog-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-cog.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-compose-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-compose.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-contact-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-contact.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-copy-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-copy.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-download-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-download.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-drag.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-email-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-email.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-eye-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-eye.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-fastforward-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-fastforward.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-filing-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-filing.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-film-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-film.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-flag-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-flag.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-folder-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-folder.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-gear-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-gear.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-glasses-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-glasses.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-heart-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-heart.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-help-empty.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-help-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-help.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-infinite-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-infinite.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-information-empty.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-information-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-information.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-ionic-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-keypad-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-keypad.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-lightbulb-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-lightbulb.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-location-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-location.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-locked-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-locked.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-medkit-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-medkit.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-mic-off.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-mic-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-mic.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-minus-empty.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-minus-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-minus.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-monitor-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-monitor.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-moon-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-moon.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-more-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-more.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-musical-note.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-musical-notes.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-navigate-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-navigate.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-paperplane-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-paperplane.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-partlysunny-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-partlysunny.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-pause-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-pause.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-people-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-people.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-person-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-person.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-personadd-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-personadd.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-photos-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-photos.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-pie-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-pie.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-play-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-play.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-plus-empty.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-plus-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-plus.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-pricetag-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-pricetag.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-printer-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-printer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-rainy-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-rainy.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-recording-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-recording.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-redo-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-redo.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-refresh-empty.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-refresh-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-refresh.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-reload.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-rewind-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-rewind.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-search-strong.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-search.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-skipbackward-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-skipbackward.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-skipforward-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-skipforward.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-snowy.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-speedometer-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-speedometer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-star-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-star.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-stopwatch-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-stopwatch.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-sunny-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-sunny.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-telephone-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-telephone.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-thunderstorm-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-thunderstorm.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-time-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-time.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-timer-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-timer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-trash-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-trash.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-undo-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-undo.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-unlocked-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-unlocked.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-upload-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-upload.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-videocam-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-videocam.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-volume-high.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-volume-low.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-wineglass-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-wineglass.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-world-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ios7-world.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ipad.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\iphone.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\ipod.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\jet.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\key.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\knife.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\laptop.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\leaf.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\levels.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\lightbulb.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\link.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\load-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\load-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\load-c.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\load-d.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\location.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\locked.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\log-in.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\log-out.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\loop.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\magnet.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\male.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\man.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\map.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\medkit.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\mic-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\mic-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\mic-c.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\minus-circled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\minus-round.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\minus.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\model-s.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\monitor.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\more.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\music-note.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\navicon-round.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\navicon.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\navigate.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\no-smoking.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\nuclear.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\paper-airplane.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\paperclip.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\pause.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\person-add.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\person-stalker.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\person.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\pie-graph.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\pin.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\pinpoint.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\pizza.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\plane.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\play.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\playstation.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\plus-circled.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\plus-round.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\plus.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\pound.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\power.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\pricetag.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\pricetags.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\printer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\radio-waves.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\record.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\refresh.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\reply-all.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\reply.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\search.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\settings.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\share.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\shuffle.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\skip-backward.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\skip-forward.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-android-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-android.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-apple-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-apple.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-bitcoin-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-bitcoin.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-buffer-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-buffer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-designernews-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-designernews.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-dribbble-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-dribbble.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-dropbox-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-dropbox.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-facebook-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-facebook.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-freebsd-devil.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-github-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-github.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-googleplus-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-googleplus.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-hackernews-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-hackernews.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-linkedin-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-linkedin.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-pinterest-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-pinterest.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-reddit-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-reddit.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-rss-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-rss.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-skype-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-skype.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-tumblr-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-tumblr.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-tux.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-twitter-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-twitter.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-vimeo-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-vimeo.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-windows-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-windows.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-wordpress-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-wordpress.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-yahoo-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-yahoo.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-youtube-outline.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\social-youtube.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\speakerphone.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\speedometer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\spoon.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\star.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\stats-bars.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\steam.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\stop.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\thermometer.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\thumbsdown.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\thumbsup.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\trash-a.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\trash-b.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\umbrella.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\unlocked.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\upload.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\usb.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\videocamera.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\volume-high.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\volume-low.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\volume-medium.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\volume-mute.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\waterdrop.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\wifi.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\wineglass.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\woman.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\wrench.png" />
+    <Content Include="Content\assets\icons\ionicons\png\512\xbox.png" />
+    <Content Include="Content\assets\icons\ionicons\src\alert-circled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\alert.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-add-contact.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-add.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-alarm.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-archive.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-arrow-back.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-arrow-down-left.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-arrow-down-right.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-arrow-forward.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-arrow-up-left.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-arrow-up-right.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-battery.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-book.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-calendar.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-call.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-camera.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-chat.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-checkmark.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-clock.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-close.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-contact.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-contacts.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-data.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-developer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-display.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-download.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-drawer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-dropdown.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-earth.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-folder.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-forums.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-friends.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-hand.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-image.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-inbox.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-information.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-keypad.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-lightbulb.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-locate.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-location.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-mail.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-microphone.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-mixer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-more.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-note.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-playstore.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-printer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-promotion.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-reminder.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-remove.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-search.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-send.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-settings.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-share.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-social-user.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-social.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-sort.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-stair-drawer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-star.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-stopwatch.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-storage.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-system-back.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-system-home.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-system-windows.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-timer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-trash.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-user-menu.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-volume.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\android-wifi.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\aperture.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\archive.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-down-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-down-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-down-c.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-expand.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-graph-down-left.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-graph-down-right.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-graph-up-left.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-graph-up-right.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-left-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-left-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-left-c.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-move.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-resize.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-return-left.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-return-right.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-right-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-right-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-right-c.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-shrink.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-swap.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-up-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-up-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\arrow-up-c.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\asterisk.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\at.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\bag.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\battery-charging.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\battery-empty.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\battery-full.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\battery-half.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\battery-low.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\beaker.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\beer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\bluetooth.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\bonfire.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\bookmark.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\briefcase.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\bug.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\calculator.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\calendar.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\camera.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\card.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\cash.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chatbox-working.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chatbox.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chatboxes.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chatbubble-working.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chatbubble.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chatbubbles.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\checkmark-circled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\checkmark-round.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\checkmark.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chevron-down.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chevron-left.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chevron-right.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\chevron-up.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\clipboard.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\clock.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\close-circled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\close-round.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\close.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\closed-captioning.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\cloud.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\code-download.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\code-working.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\code.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\coffee.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\compass.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\compose.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\connection-bars.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\contrast.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\cube.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\disc.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\document-text.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\document.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\drag.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\earth.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\edit.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\egg.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\eject.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\email.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\eye-disabled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\eye.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\female.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\filing.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\film-marker.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\fireball.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\flag.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\flame.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\flash-off.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\flash.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\flask.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\folder.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\fork-repo.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\fork.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\forward.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\funnel.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\game-controller-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\game-controller-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\gear-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\gear-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\grid.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\hammer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\happy.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\headphone.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\heart-broken.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\heart.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\help-buoy.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\help-circled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\help.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\home.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\icecream.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\icon-social-google-plus-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\icon-social-google-plus.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\image.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\images.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\information-circled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\information.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ionic.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-alarm-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-alarm.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-albums-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-albums.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-americanfootball-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-americanfootball.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-analytics-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-analytics.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-back.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-down.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-forward.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-left.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-right.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-thin-down.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-thin-left.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-thin-right.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-thin-up.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-arrow-up.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-at-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-at.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-barcode-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-barcode.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-baseball-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-baseball.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-basketball-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-basketball.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-bell-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-bell.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-bolt-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-bolt.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-bookmarks-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-bookmarks.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-box-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-box.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-briefcase-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-briefcase.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-browsers-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-browsers.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-calculator-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-calculator.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-calendar-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-calendar.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-camera-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-camera.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cart-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cart.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-chatboxes-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-chatboxes.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-chatbubble-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-chatbubble.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-checkmark-empty.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-checkmark-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-checkmark.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-circle-filled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-circle-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-clock-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-clock.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-close-empty.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-close-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-close.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloud-download-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloud-download.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloud-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloud-upload-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloud-upload.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloud.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloudy-night-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloudy-night.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloudy-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cloudy.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cog-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-cog.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-compose-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-compose.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-contact-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-contact.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-copy-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-copy.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-download-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-download.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-drag.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-email-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-email.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-expand.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-eye-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-eye.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-fastforward-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-fastforward.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-filing-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-filing.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-film-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-film.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-flag-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-flag.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-folder-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-folder.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-football-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-football.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-gear-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-gear.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-glasses-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-glasses.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-heart-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-heart.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-help-empty.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-help-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-help.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-home-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-home.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-infinite-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-infinite.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-information-empty.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-information-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-information.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-ionic-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-keypad-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-keypad.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-lightbulb-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-lightbulb.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-location-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-location.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-locked-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-locked.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-loop-strong.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-loop.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-medkit-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-medkit.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-mic-off.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-mic-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-mic.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-minus-empty.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-minus-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-minus.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-monitor-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-monitor.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-moon-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-moon.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-more-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-more.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-musical-note.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-musical-notes.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-navigate-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-navigate.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-paper-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-paper.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-paperplane-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-paperplane.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-partlysunny-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-partlysunny.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pause-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pause.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-paw-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-paw.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-people-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-people.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-person-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-person.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-personadd-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-personadd.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-photos-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-photos.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pie-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pie.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-play-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-play.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-plus-empty.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-plus-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-plus.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pricetag-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pricetag.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pricetags-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pricetags.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-printer-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-printer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pulse-strong.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-pulse.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-rainy-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-rainy.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-recording-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-recording.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-redo-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-redo.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-refresh-empty.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-refresh-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-refresh.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-reload.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-reverse-camera-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-reverse-camera.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-rewind-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-rewind.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-search-strong.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-search.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-settings-strong.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-settings.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-shrink.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-skipbackward-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-skipbackward.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-skipforward-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-skipforward.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-snowy.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-speedometer-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-speedometer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-star-half.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-star-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-star.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-stopwatch-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-stopwatch.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-sunny-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-sunny.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-telephone-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-telephone.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-tennisball-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-tennisball.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-thunderstorm-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-thunderstorm.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-time-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-time.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-timer-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-timer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-toggle-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-toggle.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-trash-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-trash.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-undo-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-undo.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-unlocked-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-unlocked.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-upload-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-upload.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-videocam-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-videocam.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-volume-high.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-volume-low.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-wineglass-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-wineglass.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-world-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ios7-world.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ipad.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\iphone.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ipod.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\jet.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\key.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\knife.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\laptop.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\leaf.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\levels.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\lightbulb.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\link.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\load-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\load-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\load-c.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\load-d.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\location.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\locked.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\log-in.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\log-out.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\loop.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\magnet.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\male.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\man.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\map.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\medkit.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\merge.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\mic-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\mic-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\mic-c.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\minus-circled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\minus-round.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\minus.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\model-s.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\monitor.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\more.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\mouse.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\music-note.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\navicon-round.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\navicon.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\navigate.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\network.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\no-smoking.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\nuclear.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\outlet.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\paper-airplane.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\paperclip.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pause.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\person-add.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\person-stalker.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\person.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pie-graph.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pin.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pinpoint.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pizza.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\plane.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\planet.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\play.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\playstation.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\plus-circled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\plus-round.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\plus.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\podium.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pound.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\power.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pricetag.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pricetags.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\printer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\pull-request.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\qr-scanner.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\quote.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\radio-waves.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\record.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\refresh.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\reply-all.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\reply.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ribbon-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\ribbon-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\sad.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\scissors.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\search.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\settings.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\share.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\shuffle.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\skip-backward.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\skip-forward.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-android-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-android.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-apple-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-apple.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-bitcoin-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-bitcoin.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-buffer-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-buffer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-designernews-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-designernews.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-dribbble-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-dribbble.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-dropbox-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-dropbox.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-facebook-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-facebook.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-foursquare-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-foursquare.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-freebsd-devil.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-github-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-github.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-google-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-google.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-googleplus-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-googleplus.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-hackernews-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-hackernews.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-instagram-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-instagram.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-linkedin-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-linkedin.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-pinterest-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-pinterest.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-reddit-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-reddit.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-rss-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-rss.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-skype-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-skype.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-tumblr-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-tumblr.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-tux.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-twitter-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-twitter.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-usd-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-usd.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-vimeo-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-vimeo.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-windows-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-windows.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-wordpress-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-wordpress.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-yahoo-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-yahoo.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-youtube-outline.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\social-youtube.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\speakerphone.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\speedometer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\spoon.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\star.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\stats-bars.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\steam.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\stop.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\thermometer.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\thumbsdown.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\thumbsup.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\toggle-filled.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\toggle.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\trash-a.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\trash-b.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\trophy.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\umbrella.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\university.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\unlocked.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\upload.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\usb.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\videocamera.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\volume-high.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\volume-low.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\volume-medium.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\volume-mute.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\wand.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\waterdrop.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\wifi.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\wineglass.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\woman.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\wrench.svg" />
+    <Content Include="Content\assets\icons\ionicons\src\xbox.svg" />
+    <Content Include="Content\assets\icons\themify-icons\fonts\themify.svg" />
+    <Content Include="Content\assets\icons\themify-icons\ie7\ie7.css" />
+    <Content Include="Content\assets\icons\themify-icons\ie7\ie7.js" />
+    <Content Include="Content\assets\icons\themify-icons\themify-icons.css" />
+    <Content Include="Content\assets\icons\typicons\typicons.min.css" />
+    <Content Include="Content\assets\icons\typicons\typicons.svg" />
+    <Content Include="Content\assets\images\bg-directory-pattern.png" />
+    <Content Include="Content\assets\images\bg.jpg" />
+    <Content Include="Content\assets\images\favicon.ico" />
+    <Content Include="Content\assets\images\logo-light.png" />
+    <Content Include="Content\assets\images\logo-sm-light.png" />
+    <Content Include="Content\assets\images\logo-sm.png" />
+    <Content Include="Content\assets\images\logo.png" />
+    <Content Include="Content\assets\images\pattern-white.png" />
+    <Content Include="Content\assets\images\small\img-1.jpg" />
+    <Content Include="Content\assets\images\small\img-2.jpg" />
+    <Content Include="Content\assets\images\small\img-3.jpg" />
+    <Content Include="Content\assets\images\small\img-4.jpg" />
+    <Content Include="Content\assets\images\small\img-5.jpg" />
+    <Content Include="Content\assets\images\small\img-6.jpg" />
+    <Content Include="Content\assets\images\small\img-7.jpg" />
+    <Content Include="Content\assets\images\users\user-1.jpg" />
+    <Content Include="Content\assets\images\users\user-10.jpg" />
+    <Content Include="Content\assets\images\users\user-2.jpg" />
+    <Content Include="Content\assets\images\users\user-3.jpg" />
+    <Content Include="Content\assets\images\users\user-4.jpg" />
+    <Content Include="Content\assets\images\users\user-5.jpg" />
+    <Content Include="Content\assets\images\users\user-6.jpg" />
+    <Content Include="Content\assets\images\users\user-7.jpg" />
+    <Content Include="Content\assets\images\users\user-8.jpg" />
+    <Content Include="Content\assets\images\users\user-9.jpg" />
+    <Content Include="Content\assets\js\app.js" />
+    <Content Include="Content\assets\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\assets\js\jquery.min.js" />
+    <Content Include="Content\assets\js\jquery.slimscroll.js" />
+    <Content Include="Content\assets\js\metisMenu.min.js" />
+    <Content Include="Content\assets\js\waves.min.js" />
+    <Content Include="Content\assets\pages\c3-chart-init.js" />
+    <Content Include="Content\assets\pages\calendar-init.js" />
+    <Content Include="Content\assets\pages\chartist.init.js" />
+    <Content Include="Content\assets\pages\chartjs.init.js" />
+    <Content Include="Content\assets\pages\dashboard.js" />
+    <Content Include="Content\assets\pages\datatables.init.js" />
+    <Content Include="Content\assets\pages\flot.init.js" />
+    <Content Include="Content\assets\pages\form-advanced.js" />
+    <Content Include="Content\assets\pages\gmaps.js" />
+    <Content Include="Content\assets\pages\jvectormap.init.js" />
+    <Content Include="Content\assets\pages\lightbox.js" />
+    <Content Include="Content\assets\pages\morris.init.js" />
+    <Content Include="Content\assets\pages\rangeslider-init.js" />
+    <Content Include="Content\assets\pages\sweet-alert.init.js" />
+    <Content Include="Content\assets\pages\xeditable.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\dropify\css\demo.css" />
+    <Content Include="Content\dropify\css\dropify.css" />
+    <Content Include="Content\dropify\css\dropify.min.css" />
+    <Content Include="Content\dropify\dist\css\demo.css" />
+    <Content Include="Content\dropify\dist\css\dropify.css" />
+    <Content Include="Content\dropify\dist\css\dropify.min.css" />
+    <Content Include="Content\dropify\dist\fonts\dropify.svg" />
+    <Content Include="Content\dropify\dist\js\dropify.js" />
+    <Content Include="Content\dropify\dist\js\dropify.min.js" />
+    <Content Include="Content\dropify\fonts\dropify.svg" />
+    <Content Include="Content\dropify\images\cover.jpg" />
+    <Content Include="Content\dropify\images\test-image-1.jpg" />
+    <Content Include="Content\dropify\images\test-image-2.jpg" />
+    <Content Include="Content\dropify\js\dropify.js" />
+    <Content Include="Content\dropify\js\dropify.min.js" />
+    <Content Include="Content\dropify\noimage.png" />
+    <Content Include="Content\user assets\css\plugins\plugins.min.css" />
+    <Content Include="Content\user assets\css\style.min.css" />
+    <Content Include="Content\user assets\css\vendor\vendor.min.css" />
+    <Content Include="Content\user assets\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Content\user assets\fonts\Pe-icon-7-strokebb1d.svg" />
+    <Content Include="Content\user assets\images\about\banner\1-1-1920x598.jpg" />
+    <Content Include="Content\user assets\images\about\banner\2-1-1920x500.jpg" />
+    <Content Include="Content\user assets\images\about\intro\icon\1-1-170x165.png" />
+    <Content Include="Content\user assets\images\about\team\1-1-370x350.jpg" />
+    <Content Include="Content\user assets\images\about\team\1-2-370x350.jpg" />
+    <Content Include="Content\user assets\images\about\team\1-3-370x350.jpg" />
+    <Content Include="Content\user assets\images\avatar\1.jpg" />
+    <Content Include="Content\user assets\images\avatar\2.jpg" />
+    <Content Include="Content\user assets\images\banner\1-1-370x250.jpg" />
+    <Content Include="Content\user assets\images\banner\1-2-370x250.jpg" />
+    <Content Include="Content\user assets\images\banner\1-3-370x250.jpg" />
+    <Content Include="Content\user assets\images\banner\2-1-1920x523.jpg" />
+    <Content Include="Content\user assets\images\banner\3-1-1920x582.jpg" />
+    <Content Include="Content\user assets\images\banner\category-icon\1.png" />
+    <Content Include="Content\user assets\images\banner\category-icon\2.png" />
+    <Content Include="Content\user assets\images\banner\category-icon\3.png" />
+    <Content Include="Content\user assets\images\banner\category-icon\4.png" />
+    <Content Include="Content\user assets\images\banner\category-icon\5.png" />
+    <Content Include="Content\user assets\images\banner\inner-img\2-1-503x430.png" />
+    <Content Include="Content\user assets\images\blog\banner\1-1-370x400.jpg" />
+    <Content Include="Content\user assets\images\blog\blockquote\quotation.png" />
+    <Content Include="Content\user assets\images\blog\large-size\1-1-1170x672.jpg" />
+    <Content Include="Content\user assets\images\blog\large-size\1-1-870x500.jpg" />
+    <Content Include="Content\user assets\images\blog\medium-size\1-1-370x315.jpg" />
+    <Content Include="Content\user assets\images\blog\medium-size\1-2-370x315.jpg" />
+    <Content Include="Content\user assets\images\blog\medium-size\1-3-370x315.jpg" />
+    <Content Include="Content\user assets\images\blog\medium-size\2-1-570x485.jpg" />
+    <Content Include="Content\user assets\images\blog\medium-size\2-2-570x485.jpg" />
+    <Content Include="Content\user assets\images\blog\medium-size\2-3-570x485.jpg" />
+    <Content Include="Content\user assets\images\blog\medium-size\2-4-570x485.jpg" />
+    <Content Include="Content\user assets\images\blog\small-size\1-1-86x86.jpg" />
+    <Content Include="Content\user assets\images\blog\small-size\1-2-86x86.jpg" />
+    <Content Include="Content\user assets\images\blog\small-size\1-3-86x86.jpg" />
+    <Content Include="Content\user assets\images\brand\1-1.png" />
+    <Content Include="Content\user assets\images\brand\1-2.png" />
+    <Content Include="Content\user assets\images\brand\1-3.png" />
+    <Content Include="Content\user assets\images\brand\1-4.png" />
+    <Content Include="Content\user assets\images\brand\1-5.png" />
+    <Content Include="Content\user assets\images\breadcrumb\bg\1-1-1920x373.jpg" />
+    <Content Include="Content\user assets\images\favicon.ico" />
+    <Content Include="Content\user assets\images\logo\dark.png" />
+    <Content Include="Content\user assets\images\megamenu\slider\1.jpg" />
+    <Content Include="Content\user assets\images\megamenu\slider\2.jpg" />
+    <Content Include="Content\user assets\images\payment\1.png" />
+    <Content Include="Content\user assets\images\product\icon\1.png" />
+    <Content Include="Content\user assets\images\product\icon\2.png" />
+    <Content Include="Content\user assets\images\product\icon\3.png" />
+    <Content Include="Content\user assets\images\product\icon\4.png" />
+    <Content Include="Content\user assets\images\product\icon\5.png" />
+    <Content Include="Content\user assets\images\product\large-size\2-1-555x645.jpg" />
+    <Content Include="Content\user assets\images\product\large-size\2-2-555x645.jpg" />
+    <Content Include="Content\user assets\images\product\large-size\2-3-555x645.jpg" />
+    <Content Include="Content\user assets\images\product\large-size\2-4-555x645.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-1-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-10-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-11-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-12-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-2-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-3-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-4-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-5-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-6-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-7-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-8-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\medium-size\1-9-270x300.jpg" />
+    <Content Include="Content\user assets\images\product\small-size\1-1-112x124.jpg" />
+    <Content Include="Content\user assets\images\product\small-size\1-2-112x124.jpg" />
+    <Content Include="Content\user assets\images\product\small-size\1-3-112x124.jpg" />
+    <Content Include="Content\user assets\images\product\small-size\1-4-112x124.jpg" />
+    <Content Include="Content\user assets\images\product\small-size\1-5-112x124.jpg" />
+    <Content Include="Content\user assets\images\product\small-size\1-6-112x124.jpg" />
+    <Content Include="Content\user assets\images\shape\1.png" />
+    <Content Include="Content\user assets\images\shape\2.png" />
+    <Content Include="Content\user assets\images\shipping\icon\earphones.png" />
+    <Content Include="Content\user assets\images\shipping\icon\plane.png" />
+    <Content Include="Content\user assets\images\shipping\icon\shield.png" />
+    <Content Include="Content\user assets\images\slider\bg\1-1.jpg" />
+    <Content Include="Content\user assets\images\slider\bg\2-1.jpg" />
+    <Content Include="Content\user assets\images\slider\bg\2-2.jpg" />
+    <Content Include="Content\user assets\images\slider\inner-img\1-1-231x210.png" />
+    <Content Include="Content\user assets\images\slider\inner-img\1-2-224x204.png" />
+    <Content Include="Content\user assets\images\slider\inner-img\1-3-601x534.png" />
+    <Content Include="Content\user assets\images\slider\inner-img\2-1-601x426.png" />
+    <Content Include="Content\user assets\images\testimonial\user\1.png" />
+    <Content Include="Content\user assets\js\main.min.js" />
+    <Content Include="Content\user assets\js\plugins.min.js" />
+    <Content Include="Content\user assets\js\vendor.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\assets\css\icons.css.map" />
+    <Content Include="Content\assets\css\style.css.map" />
+    <Content Include="Content\assets\css\typicons.css.map" />
+    <Content Include="Content\assets\fonts\dripicons-v2.eot" />
+    <Content Include="Content\assets\fonts\dripicons-v2.ttf" />
+    <Content Include="Content\assets\fonts\dripicons-v2.woff" />
+    <Content Include="Content\assets\fonts\fa-brands-400.eot" />
+    <Content Include="Content\assets\fonts\fa-brands-400.ttf" />
+    <Content Include="Content\assets\fonts\fa-brands-400.woff" />
+    <Content Include="Content\assets\fonts\fa-brands-400.woff2" />
+    <Content Include="Content\assets\fonts\fa-regular-400.eot" />
+    <Content Include="Content\assets\fonts\fa-regular-400.ttf" />
+    <Content Include="Content\assets\fonts\fa-regular-400.woff" />
+    <Content Include="Content\assets\fonts\fa-regular-400.woff2" />
+    <Content Include="Content\assets\fonts\fa-solid-900.eot" />
+    <Content Include="Content\assets\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\assets\fonts\fa-solid-900.woff" />
+    <Content Include="Content\assets\fonts\fa-solid-900.woff2" />
+    <Content Include="Content\assets\fonts\ionicons.eot" />
+    <Content Include="Content\assets\fonts\ionicons.ttf" />
+    <Content Include="Content\assets\fonts\ionicons.woff" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="Content\assets\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Content\assets\fonts\themify.eot" />
+    <Content Include="Content\assets\fonts\themify.ttf" />
+    <Content Include="Content\assets\fonts\themify.woff" />
+    <Content Include="Content\assets\fonts\typicons.eot" />
+    <Content Include="Content\assets\fonts\typicons.scss" />
+    <Content Include="Content\assets\fonts\typicons.ttf" />
+    <Content Include="Content\assets\fonts\typicons.woff" />
+    <Content Include="Content\assets\icons\css\dripicons.css.map" />
+    <Content Include="Content\assets\icons\css\materialdesignicons.css.map" />
+    <Content Include="Content\assets\icons\css\materialdesignicons.min.css.map" />
+    <Content Include="Content\assets\icons\css\themify-icons.css.map" />
+    <Content Include="Content\assets\icons\css\typicons.css.map" />
+    <Content Include="Content\assets\icons\dripicons\dripicons.scss" />
+    <Content Include="Content\assets\icons\dripicons\fonts\dripicons-v2.eot" />
+    <Content Include="Content\assets\icons\dripicons\fonts\dripicons-v2.ttf" />
+    <Content Include="Content\assets\icons\dripicons\fonts\dripicons-v2.woff" />
+    <Content Include="Content\assets\icons\fontawesome\css\fa-brands.css.map" />
+    <Content Include="Content\assets\icons\fontawesome\css\fa-regular.css.map" />
+    <Content Include="Content\assets\icons\fontawesome\css\fa-solid.css.map" />
+    <Content Include="Content\assets\icons\fontawesome\css\fontawesome-all.css.map" />
+    <Content Include="Content\assets\icons\fontawesome\css\fontawesome.css.map" />
+    <Content Include="Content\assets\icons\fontawesome\scss\fa-brands.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\fa-regular.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\fa-solid.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\fontawesome.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_animated.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_core.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_fixed-width.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_icons.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_larger.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_list.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_mixins.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_screen-reader.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_stacked.scss" />
+    <Content Include="Content\assets\icons\fontawesome\scss\_variables.scss" />
+    <Content Include="Content\assets\icons\ionicons\css\ionicons.css.map" />
+    <Content Include="Content\assets\icons\ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\assets\icons\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\assets\icons\ionicons\fonts\ionicons.woff" />
+    <Content Include="Content\assets\icons\ionicons\less\ionicons.less" />
+    <Content Include="Content\assets\icons\ionicons\less\_ionicons-animation.less" />
+    <Content Include="Content\assets\icons\ionicons\less\_ionicons-font.less" />
+    <Content Include="Content\assets\icons\ionicons\less\_ionicons-icons.less" />
+    <Content Include="Content\assets\icons\ionicons\less\_ionicons-variables.less" />
+    <Content Include="Content\assets\icons\ionicons\scss\ionicons.scss" />
+    <Content Include="Content\assets\icons\ionicons\scss\_ionicons-animation.scss" />
+    <Content Include="Content\assets\icons\ionicons\scss\_ionicons-font.scss" />
+    <Content Include="Content\assets\icons\ionicons\scss\_ionicons-icons.scss" />
+    <Content Include="Content\assets\icons\ionicons\scss\_ionicons-variables.scss" />
+    <Content Include="Content\assets\icons\material-design\materialdesignicons.scss" />
+    <Content Include="Content\assets\icons\material-design\_animated.scss" />
+    <Content Include="Content\assets\icons\material-design\_core.scss" />
+    <Content Include="Content\assets\icons\material-design\_extras.scss" />
+    <Content Include="Content\assets\icons\material-design\_functions.scss" />
+    <Content Include="Content\assets\icons\material-design\_icons.scss" />
+    <Content Include="Content\assets\icons\material-design\_path.scss" />
+    <Content Include="Content\assets\icons\material-design\_variables.scss" />
+    <Content Include="Content\assets\icons\themify-icons\fonts\themify.eot" />
+    <Content Include="Content\assets\icons\themify-icons\fonts\themify.ttf" />
+    <Content Include="Content\assets\icons\themify-icons\fonts\themify.woff" />
+    <Content Include="Content\assets\icons\themify-icons\themify-icons.scss" />
+    <Content Include="Content\assets\icons\typicons\typicons.eot" />
+    <Content Include="Content\assets\icons\typicons\typicons.scss" />
+    <Content Include="Content\assets\icons\typicons\typicons.ttf" />
+    <Content Include="Content\assets\icons\typicons\typicons.woff" />
+    <Content Include="Content\assets\scss\icons.scss" />
+    <Content Include="Content\assets\scss\style.scss" />
+    <Content Include="Content\assets\scss\_account-pages.scss" />
+    <Content Include="Content\assets\scss\_alerts.scss" />
+    <Content Include="Content\assets\scss\_bootstrap-custom.scss" />
+    <Content Include="Content\assets\scss\_buttons.scss" />
+    <Content Include="Content\assets\scss\_calendar.scss" />
+    <Content Include="Content\assets\scss\_cards.scss" />
+    <Content Include="Content\assets\scss\_charts.scss" />
+    <Content Include="Content\assets\scss\_dashboard.scss" />
+    <Content Include="Content\assets\scss\_demo-only.scss" />
+    <Content Include="Content\assets\scss\_directory.scss" />
+    <Content Include="Content\assets\scss\_email.scss" />
+    <Content Include="Content\assets\scss\_form-advanced.scss" />
+    <Content Include="Content\assets\scss\_form-editor.scss" />
+    <Content Include="Content\assets\scss\_form-elements.scss" />
+    <Content Include="Content\assets\scss\_form-upload.scss" />
+    <Content Include="Content\assets\scss\_form-validation.scss" />
+    <Content Include="Content\assets\scss\_general.scss" />
+    <Content Include="Content\assets\scss\_helper.scss" />
+    <Content Include="Content\assets\scss\_invoice.scss" />
+    <Content Include="Content\assets\scss\_maps.scss" />
+    <Content Include="Content\assets\scss\_menu.scss" />
+    <Content Include="Content\assets\scss\_pagination.scss" />
+    <Content Include="Content\assets\scss\_popover-tooltips.scss" />
+    <Content Include="Content\assets\scss\_progress.scss" />
+    <Content Include="Content\assets\scss\_range-slider.scss" />
+    <Content Include="Content\assets\scss\_responsive.scss" />
+    <Content Include="Content\assets\scss\_session-timeout.scss" />
+    <Content Include="Content\assets\scss\_summernote.scss" />
+    <Content Include="Content\assets\scss\_sweet-alert.scss" />
+    <Content Include="Content\assets\scss\_tables.scss" />
+    <Content Include="Content\assets\scss\_tabs.scss" />
+    <Content Include="Content\assets\scss\_timeline.scss" />
+    <Content Include="Content\assets\scss\_variables.scss" />
+    <Content Include="Content\assets\scss\_waves.scss" />
+    <Content Include="Content\assets\scss\_widgets.scss" />
+    <Content Include="Content\dropify\dist\fonts\dropify.eot" />
+    <Content Include="Content\dropify\dist\fonts\dropify.ttf" />
+    <Content Include="Content\dropify\dist\fonts\dropify.woff" />
+    <Content Include="Content\dropify\fonts\dropify.eot" />
+    <Content Include="Content\dropify\fonts\dropify.ttf" />
+    <Content Include="Content\dropify\fonts\dropify.woff" />
+    <Content Include="Content\dropify\js\dropify.rar" />
+    <Content Include="Content\dropify\PdfOnly.pdf" />
+    <Content Include="Content\user assets\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Content\user assets\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Content\user assets\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Content\user assets\fonts\fontawesome-webfont3e6e.woff2" />
+    <Content Include="Content\user assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\user assets\fonts\Pe-icon-7-strokebb1d.eot" />
+    <Content Include="Content\user assets\fonts\Pe-icon-7-strokebb1d.ttf" />
+    <Content Include="Content\user assets\fonts\Pe-icon-7-strokebb1d.woff" />
+    <Content Include="Content\user assets\fonts\Pe-icon-7-stroked41d.eot" />
+    <Content Include="Models\MyDb.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MyDb.Context.cs</LastGenOutput>
+      <DependentUpon>MyDb.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MyDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyDb.edmx</DependentUpon>
+      <LastGenOutput>MyDb.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\MyDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MyDb.edmx.diagram">
+      <DependentUpon>MyDb.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Admin_Layout.cshtml" />
+    <Content Include="Views\Category\AddCategory.cshtml" />
+    <Content Include="Views\SubCategory\AddSubCategory.cshtml" />
+    <Content Include="Views\Product\AddProduct.cshtml" />
+    <Content Include="Views\Color\AddColor.cshtml" />
+    <Content Include="Views\Management\Login.cshtml" />
+    <Content Include="Views\Dashboard\AddDashboard.cshtml" />
+    <Content Include="Views\Shared\User_Layout.cshtml" />
+    <Content Include="Views\Index\AddIndex.cshtml" />
+    <Content Include="Views\Cart\AddCart.cshtml" />
+    <Content Include="Views\wishlist\Addwishlist.cshtml" />
+    <Content Include="Views\SingleProduct\AddSingleProduct.cshtml" />
+    <Content Include="Views\Category\_PartialViewCategory.cshtml" />
+    <Content Include="Views\SubCategory\_PartialViewSubCategory.cshtml" />
+    <Content Include="Views\Product\_PartialViewProduct.cshtml" />
+    <Content Include="Views\Color\_PartialViewColor.cshtml" />
+    <Content Include="Views\About\AboutAdmin.cshtml" />
+    <Content Include="Views\MyAccount\Account.cshtml" />
+    <Content Include="Views\UserLogin\Login.cshtml" />
+    <Content Include="Views\UserLoginRegister\LoginRegister.cshtml" />
+    <Content Include="Views\ShopDefault\AddShopDefault.cshtml" />
+    <Content Include="Views\Contact\Contactus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\assets\CategoriesImage\" />
+    <Folder Include="Content\assets\ColorImage\" />
+    <Folder Include="Content\assets\ProductImage\" />
+    <Folder Include="Content\assets\SubCategoriesImage\" />
+    <Folder Include="Views\UserRegister\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54694</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44321/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

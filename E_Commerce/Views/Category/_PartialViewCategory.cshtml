@@ -1,0 +1,23 @@
+﻿@model List<E_Commerce.Models.tblCategory>
+
+<table id="tableCategory" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+    <thead>
+        <tr>
+            <th>CategoryName</th>
+            <th>Status</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryName</td>
+                <td>@item.Status</td>
+                <td><img src="@item.Image" width="100" height="100" alt="CategoryImage"/></td>
+                <td><button class="btn btn-outline-primary" type="button" onclick = "Edit(@item.CategoryID)">Edit</button> | |<button class="btn btn-outline-danger" onclick = "Delete(@item.CategoryID,'@item.Image')" type="button">Delete</button></td>
+             </tr>
+       }
+</tbody>
+</table>

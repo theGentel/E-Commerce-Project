@@ -1,0 +1,163 @@
+﻿@model  E_Commerce.Models.SubCategoryModel
+@{
+    ViewBag.Title = "AddSubCategory";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<!-- page-title-box -->
+<div class="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card m-b-20">
+                    <div class="card-body">
+                        <h2 class="mb-4 text-center">SubCategory Form</h2>
+                        <div class="color-picker-inputs">
+                            <form id="SaveSubCategories" action="#" method="post" enctype="multipart/form-data">
+                                @Html.HiddenFor(a => a.SubCategoryID)
+                                @Html.HiddenFor(a => a.Image)
+                                <div class="form-group">
+                                    <label class="control-label">CategoryID</label>
+                                    @Html.DropDownListFor(a => a.CategoryID, new SelectList(@ViewBag.Category, "CategoryID", "CategoryName"), "--Select Category--", new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>SubCategory Name</label>
+                                    @Html.TextBoxFor(a => a.SubCategoryName, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Status</label>
+                                    @Html.DropDownListFor(a => a.Status, new List<SelectListItem>()
+                                    {
+                                    new SelectListItem(){Text = "--Select Item--" , Value="-1"},
+                                    new SelectListItem(){Text = "Active" , Value="1"},
+                                    new SelectListItem(){Text = "InActive" , Value="0"},
+                                    }, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    @Html.TextBoxFor(a => a.ImageFile, new { @class = " dropify", type = "file", data_default_file = "/dropify/noimage.png" })
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" id="AddSubCategory" class=" btn btn-outline-primary">Save</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+            <!-- end col -->
+        </div> <!-- end row -->
+
+    </div>
+    <!-- end container-fluid -->
+</div>
+<!-- end page content-->
+
+
+<div class="wrapper">
+    <!-- page-title-box -->
+    <div class="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card m-b-20">
+                        <div class="card-body">
+
+                            <h2 class="mb-4 text-center">SubCategory Datatable</h2>
+
+                            <div id="divload">
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+        </div>
+        <!-- end container-fluid -->
+    </div>
+    <!-- end page content-->
+</div>
+
+@section script{
+    <script>
+        $(document).ready(function () {
+            $(".dropify").dropify();
+            SubCategoryList();
+        });
+
+        $('#AddSubCategory').click(function (event) {
+                event.preventDefault();
+                var formData = new FormData(document.getElementById("SaveSubCategories"));
+                $.ajax({
+                    url: '@Url.Action("Save", "SubCategory")',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: function (res) {
+                        if (res == 1) {
+                            alert("Data Saved");
+                            SubCategoryList();
+                        }
+                        else {
+                            alert("something went wrong");
+                        }
+                    }
+                });
+                return false;
+           });
+
+
+
+        function SubCategoryList() {
+            $.ajax({
+                type: 'Get',
+                url: '@Url.Action("listSubCategory", "SubCategory")',
+                success: function (data) {
+                    $("#divload").html(data);
+                    // $("#tableCategory").DataTable();
+                }
+            });
+        }
+        
+
+        function Delete(id, ImageName) {
+            $.ajax({
+                type: 'Post',
+                url: '@Url.Action("DeleteSubCategory","SubCategory")',
+                data: { id: id, ImageName: ImageName },
+                success: function (data) {
+                    if (data == 1) {
+                        SubCategoryList();
+                    }
+                }
+            });
+        }
+
+
+        function Edit(id) {
+            $.ajax({
+                type: 'Get',
+                url: '@Url.Action("Edit","SubCategory")',
+                data: { SubCategoryID : id},
+                success: function (data) {
+                    $("#CategoryID").val(data.CategoryID);
+                    $("#SubCategoryID").val(data.SubCategoryID);
+                    $("#SubCategoryName").val(data.SubCategoryName);
+                    $("#Status").val(data.Status);
+                    $('.dropify-render > img ').attr('src', data.Image);
+                    $("#Image").val(data.Image);
+                }
+            });
+        }
+
+    </script>
+}

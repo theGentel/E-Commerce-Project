@@ -1,0 +1,97 @@
+﻿@model E_Commerce.Models.UserLoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/User_Layout.cshtml";
+}
+
+<main class="main-content">
+    <div class="breadcrumb-area breadcrumb-height" data-bg-image="/Content/user assets/images/breadcrumb/bg/1-1-1920x373.jpg">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-item">
+                        <h2 class="breadcrumb-heading">Product Related</h2>
+                        <ul>
+                            <li>
+                                <a href="index.html">Home <i class="pe-7s-angle-right"></i></a>
+                            </li>
+                            <li>Login</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login-register-area section-space-y-axis-100">
+        <div class="container">
+            <div class="row d-block">
+                <div class="col-lg-12">
+                    <form id="SaveLogin" action="#" method="post" enctype="multipart/form-data">
+                        <div class="login-form">
+                            <h4 class="login-title">Login</h4>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <label>Email Address*</label>
+                                    @Html.TextBoxFor(a => a.Email, new { @class = "form-control", type = "Email" });
+                                </div>
+                                <div class="col-lg-12">
+                                    <label>Password</label>
+                                    @Html.TextBoxFor(a => a.Password, new { @class = "form-contorl", type = "Password" })
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="check-box">
+                                        <input type="checkbox" id="remember_me">
+                                        <label for="remember_me">Remember me</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 pt-1 mt-md-0">
+                                    <div class="forgotton-password_info">
+                                        <a href="#"> Forgotten pasward?</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 pt-5">
+                                    <button id="UserLogin" class="btn btn-custom-size lg-size btn-secondary btn-primary-hover rounded-0">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+@section script{
+    <script>
+        $(document).ready(function () {
+            $(".dropify").dropify();
+            SubCategoryList();
+        });
+
+
+        $('#UserLogin').click(function (event) {
+                event.preventDefault();
+                var formData = new FormData(document.getElementById("SaveLogin"));
+                $.ajax({
+                    url: '@Url.Action("Save", "UserLogin")',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: function (res) {
+                        if (res == 1) {
+                            alert("Data Saved");
+                        }
+                        else {
+                            alert("something went wrong");
+                        }
+                    }
+                });
+                return false;
+           });
+    </script>
+}
+
+
