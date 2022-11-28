@@ -14,6 +14,11 @@ namespace E_Commerce.Controllers
         {
             return View();
         }
+
+        public ActionResult AdCategory()
+        {
+            return View();
+        }
         [HttpPost]
         public JsonResult Save(CategoryModel obj)
         {
