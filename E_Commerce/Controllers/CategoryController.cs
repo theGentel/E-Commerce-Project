@@ -15,7 +15,7 @@ namespace E_Commerce.Controllers
             return View();
         }
 
-        public ActionResult AdCategory()
+        public ActionResult AdddCategory()
         {
             return View();
         }
