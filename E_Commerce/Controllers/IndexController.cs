@@ -8,9 +8,11 @@ using System.Web.Mvc;
 
 namespace E_Commerce.Controllers
 {
+    [Authorize]
     public class IndexController : Controller
     {
         // GET: Index
+        [Route("AddIndex")]
         public ActionResult AddIndex()
         {
             E_CommerceDBEntities obj = new E_CommerceDBEntities();

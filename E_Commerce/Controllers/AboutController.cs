@@ -6,9 +6,11 @@ using System.Web.Mvc;
 
 namespace E_Commerce.Controllers
 {
+    [Authorize]
     public class AboutController : Controller
     {
         // GET: About
+        [Route("AboutAdmin")]
         public ActionResult AboutAdmin()
         {
             return View();

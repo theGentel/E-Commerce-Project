@@ -1,4 +1,5 @@
-﻿@model E_Commerce.Models.CreateUserModel
+﻿
+@model E_Commerce.Models.LoginModel
 @{
     Layout = null;
 }
@@ -39,54 +40,24 @@
                     <h4 class="text-muted font-18 m-b-5 text-center">Free Register</h4>
                     <p class="text-muted text-center">Get your free Agroxa account now.</p>
 
-                    <form id="SaveCreateUser" action="#" method="post" enctype="multipart/form-data">
+                    <form  action="@Url.Action("Login","CreateUser")" method="post" enctype="multipart/form-data">
                         <div class="color-picker-inputs">
 
-                            @Html.HiddenFor(a => a.AdminID)
-                            @Html.HiddenFor(a => a.Image)
 
                             <div class="form-group">
-                                <label>User Name</label>
-                                @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
+                                <label>Email</label>
+                                @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
                                 <span id="spUserName" style="display:none;color:red;font-size:small;">Please Enter UserName</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label>User Email</label>
-                                @Html.TextBoxFor(a => a.UserEmail, new { @class = "form-control" })
-                                <span id="spUserEmail" style="display:none;color:red;font-size:small;">Please Enter UserEmail</span>
                             </div>
 
                             <div class="form-group">
                                 <label>Password</label>
                                 @Html.TextBoxFor(a => a.Password, new { @class = "form-control" })
-                                <span id="spPassword" style="display:none;color:red;font-size:small;">Please Enter Password</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label>RoleID</label>
-                                @Html.TextBoxFor(a => a.RoleID, new { @class = "form-control" })
-                                <span id="spRoleID" style="display:none;color:red;font-size:small;">Please Enter RoleID</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label">Status</label>
-                                @Html.DropDownListFor(a => a.StatusID, new List<SelectListItem>() {
-                               new SelectListItem(){Text = "--Select Item--" , Value="-1"},
-                               new SelectListItem(){Text = "Active" , Value="1"},
-                               new SelectListItem(){Text = "InActive" , Value="0"},
-                           }, new { @class = "form-control" })
-                                <span id="spStatus" style="display:none;color:red;font-size:small;">Please Enter Stauts</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Image</label>
-                                @Html.TextBoxFor(a => a.ImageFile, new { @class = " dropify", type = "file", data_default_file = "/dropify/noimage.png" })
-                                <span id="spImage" style="display:none;color:red;font-size:small;">Please Enter Image</span>
+                                <span id="spUserEmail" style="display:none;color:red;font-size:small;">Please Enter UserEmail</span>
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" id="btnSubmit" class="btn btn-lg btn-outline-primary">Save</button>
+                                <button type="submit" class="btn btn-lg btn-outline-primary">Save</button>
                             </div>
 
                         </div>
@@ -119,71 +90,18 @@
         });
 
 
-    $(document).ready(function () {
-            $(".dropify").dropify();
-     });
+
 
 
 
         $("#btnSubmit").click(function (e) {
-            if (validate() == 6) {
+
+           
                 SaveData();
-            }
-            else {
-                return false;
-            }
+         
         });
 
 
-        function validate() {
-
-            var check = 0;
-            if ($("#UserName").val() == "") {
-                $("#spUserName").show();
-            }
-            else {
-                $("#spUserName").hide();
-                check++;
-            }
-            if ($("#UserEmail").val() == "-1") {
-                $("#spUserEmail").show();
-            }
-            else {
-                $("#spUserEmail").hide();
-                check++;
-            }
-            if ($("#Password").val() == "") {
-                $("#spPassword").show();
-            }
-            else {
-                $("#spPassword").hide();
-                check++;
-            }
-            if ($("#RoleID").val() == "") {
-                $("#spRoleID").show();
-            }
-            else {
-                $("#spRoleID").hide();
-                check++;
-            }
-
-            if ($("#Status").val() == "") {
-                $("#spStatusID").show();
-            }
-            else {
-                $("#spStatusID").hide();
-                check++;
-            }
-
-            if ($("#Image").val() == "") {
-                $("#spImageFile").show();
-            }
-            else {
-                $("#spImageFile").hide();
-                check++;
-            }
-            return check;
-        }
 
 
 
@@ -191,7 +109,7 @@
             event.preventDefault();
             var formData = new FormData(document.getElementById("SaveCreateUser"));
             $.ajax({
-                url: '@Url.Action("Save", "CreateUser")',
+                url: '@Url.Action("Login","CreateUser")',
                 data: formData,
                 dataType: 'json',
                 contentType: false,

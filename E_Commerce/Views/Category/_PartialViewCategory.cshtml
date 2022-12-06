@@ -1,4 +1,4 @@
-﻿@model List<E_Commerce.Models.tblCategory>
+﻿@model List<E_Commerce.Models.CategoryModel>
 
 <table id="tableCategory" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
     <thead>
@@ -14,9 +14,9 @@
         {
             <tr>
                 <td>@item.CategoryName</td>
-                <td>@item.Status</td>
+                <td>@item.StatusName</td>
                 <td><img src="@item.Image" width="100" height="100" alt="CategoryImage"/></td>
-                <td><button class="btn btn-outline-primary" type="button" onclick = "Edit(@item.CategoryID)">Edit</button> | |<button class="btn btn-outline-danger" onclick = "Delete(@item.CategoryID,'@item.Image')" type="button">Delete</button></td>
+                <td><button class="btn btn-outline-primary" type="button" onclick = "Edit(@item.CategoryID)">Edit</button> | | @if (User.IsInRole("SuperAdmin")) {<button class="btn btn-outline-danger" onclick="Delete(@item.CategoryID,'@item.Image')" type="button">Delete</button> } </td>
              </tr>
        }
 </tbody>

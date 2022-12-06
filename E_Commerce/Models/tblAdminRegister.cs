@@ -14,12 +14,21 @@ namespace E_Commerce.Models
     
     public partial class tblAdminRegister
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblAdminRegister()
+        {
+            this.tblRoles = new HashSet<tblRoles>();
+        }
+    
         public int AdminID { get; set; }
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public string Password { get; set; }
-        public string RoleID { get; set; }
-        public string StatusID { get; set; }
+        public Nullable<int> RoleID { get; set; }
+        public Nullable<int> StatusID { get; set; }
         public string Image { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblRoles> tblRoles { get; set; }
     }
 }

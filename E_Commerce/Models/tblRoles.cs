@@ -16,5 +16,8 @@ namespace E_Commerce.Models
     {
         public int RolesID { get; set; }
         public string RolesName { get; set; }
+        public Nullable<int> AdminID { get; set; }
+    
+        public virtual tblAdminRegister tblAdminRegister { get; set; }
     }
 }

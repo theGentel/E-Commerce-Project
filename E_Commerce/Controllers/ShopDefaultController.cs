@@ -6,9 +6,11 @@ using System.Web.Mvc;
 
 namespace E_Commerce.Controllers
 {
+    [Authorize]
     public class ShopDefaultController : Controller
     {
         // GET: ShopDefault
+        [Route("AddShopDefault")]
         public ActionResult AddShopDefault()
         {
             return View();

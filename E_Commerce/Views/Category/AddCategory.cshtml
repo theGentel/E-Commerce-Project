@@ -4,8 +4,6 @@
     Layout = "~/Views/Shared/Admin_Layout.cshtml";
 }
 
-
-
 <!-- page-title-box -->
 <div class="page-content-wrapper">
     <div class="container-fluid">
@@ -14,36 +12,39 @@
                 <div class="card m-b-20">
                     <div class="card-body">
                         <h2 class="mb-4 text-center">Category Form</h2>
-                            <form id="SaveCategories" action="#" method="post" enctype="multipart/form-data">
-                                <div class="color-picker-inputs">
+                        <form id="SaveCategories" action="#" method="post" enctype="multipart/form-data">
+                            <div class="color-picker-inputs">
+                           
+                                @Html.HiddenFor(a => a.CategoryID)
+                                @Html.HiddenFor(a => a.Image)
 
-                                    @Html.HiddenFor(a => a.CategoryID)
-                                    @Html.HiddenFor(a => a.Image)
-
-                                    <div class="form-group">
-                                        <label>Category Name</label>
-                                        @Html.TextBoxFor(a => a.CategoryName, new { @class = "form-control" })
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label">Status</label>
-                                        @Html.DropDownListFor(a => a.Status, new List<SelectListItem>() {
-                                       new SelectListItem(){Text = "--Select Item--" , Value="-1"},
-                                       new SelectListItem(){Text = "Active" , Value="1"},
-                                       new SelectListItem(){Text = "InActive" , Value="0"},
-                                   }, new { @class = "form-control" })
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Image</label>
-                                        @Html.TextBoxFor(a => a.ImageFile, new { @class = " dropify", type = "file", data_default_file = "/dropify/noimage.png" })
-                                    </div>
-
-                                    <div class="text-center">
-                                        <button type="submit" id="AddCategory" class="btn btn-lg btn-outline-primary">Save</button>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Category Name</label>
+                                    @Html.TextBoxFor(a => a.CategoryName, new { @class = "form-control" })
+                                    <span id="spCategoryName" style="display:none;color:red;font-size:small;">Please Enter CategoryName</span>
                                 </div>
-                            </form>
+
+                                <div class="form-group">
+                                    <label class="control-label">Status</label>
+                                    @Html.DropDownListFor(a => a.Status, new List<SelectListItem>() {
+                                   new SelectListItem(){Text = "--Select Item--" , Value="-1"},
+                                   new SelectListItem(){Text = "Active" , Value="1"},
+                                   new SelectListItem(){Text = "InActive" , Value="0"},
+                               }, new { @class = "form-control" })
+                                    <span id="spStatus" style="display:none;color:red;font-size:small;">Please Enter Stauts</span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    @Html.TextBoxFor(a => a.ImageFile, new { @class = " dropify", type = "file", data_default_file = "/dropify/noimage.png" })
+                                    <span id="spImage" style="display:none;color:red;font-size:small;">Please Enter Image</span>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" id="btnSubmit" class="btn btn-lg btn-outline-primary">Save</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div> <!-- end col -->
@@ -52,8 +53,6 @@
     </div>
     <!-- end container-fluid -->
 </div>
-
-
 <!-- end page content-->
 <div class="wrapper">
     <!-- page-title-box -->
@@ -65,11 +64,8 @@
                     <div class="card m-b-20">
                         <div class="card-body">
                             <h2 class="mb-4 text-center">Category Datatable</h2>
-
                             <div id="divload">
-
                             </div>
-
                         </div>
                     </div>
                 </div> <!-- end col -->
@@ -89,7 +85,54 @@
             SubCategoryList();
         });
 
-        $('#AddCategory').click(function (event) {
+        //function validate() {
+        //    if ($("#CategoryName").val() != "" && $("#Status").val() != "" && $("#ImageFile").val() != "") {
+        //        SaveData()
+        //    }
+        //    else {
+        //        swal("Error", "Please fill all the required field!");
+        //    }
+        //}
+
+        $("#btnSubmit").click(function (e) {
+            if (validate() == 3) {
+                SaveData();
+            }
+            else {
+                return false;
+            }
+        });
+
+
+        function validate() {
+
+               var check = 0;
+               if ($("#CategoryName").val() == "") {
+                   $("#spCategoryName").show();
+               }
+               else {
+                   $("#spCategoryName").hide();
+                   check++;
+               }
+                if ($("#Status").val() == "-1") {
+                   $("#spStatus").show();
+               }
+               else {
+                   $("#spStatus").hide();
+                   check++;
+               }
+                if ($("#ImageFile").val() == "") {
+                   $("#spImage").show();
+               }
+               else {
+                   $("#spImage").hide();
+                   check++;
+            }
+
+               return check;
+        }
+
+        function SaveData() {
                 event.preventDefault();
                 var formData = new FormData(document.getElementById("SaveCategories"));
                 $.ajax({
@@ -101,18 +144,20 @@
                     type: 'POST',
                     success: function (res) {
                         if (res == 1) {
-                            alert("Data Saved");
+                            swal("Success!", "Successfully Save the Data", "Success");
                             SubCategoryList();
                         }
+                        else if (res == 2)
+                        {
+                             swal("Warning!", "Sorry this entry already exist", "error");
+                        }
                         else {
-                            alert("something went wrong");
+                             swal("Oops!", "Something went gone wrong", "Error");
                         }
                     }
                 });
                 return false;
-           });
-
-
+        }
 
         function SubCategoryList() {
             $.ajax({
@@ -125,10 +170,10 @@
             });
         }
 
-
-
-        function Delete(id, ImageName) {
-            $.ajax({
+        @*function Delete(id, ImageName) {
+            let msg = "Are you Sure you want to Delete it";
+            if (confirm(msg) == true) {
+                    $.ajax({
                 type: 'Post',
                 url: '@Url.Action("DeleteCategory","Category")',
                 data: { id: id, ImageName: ImageName },
@@ -138,16 +183,44 @@
                     }
                 }
             });
+            }
+
+        }*@
+
+        function Delete(id, ImageName) {
+
+            swal({
+                title: "Are you Sure",
+                text: "Warning: This action cannnot be undone.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+
+                if (willDelete) {
+                     $.ajax({
+                type: 'Post',
+                url: '@Url.Action("DeleteCategory","Category")',
+                data: { id: id, ImageName: ImageName },
+                success: function (data) {
+                    if (data == 1) {
+                        SubCategoryList();
+                    }
+                    else if (data == 2) {
+                        alert("Not Allowed");   
+                    }
+                }
+            });
+                }
+            });
         }
-
-
 
         function Edit(id) {
             $.ajax({
                 type: 'Get',
                 url: '@Url.Action("Edit","Category")',
                 data: { CategoryId: id },
-                success: function (data) {                 
+                success: function (data) {
                     $("#CategoryID").val(data.CategoryID);
                     $("#CategoryName").val(data.CategoryName);
                     $("#Status").val(data.Status);
@@ -156,8 +229,6 @@
                 }
             });
         }
-
-
     </script>
 }
 

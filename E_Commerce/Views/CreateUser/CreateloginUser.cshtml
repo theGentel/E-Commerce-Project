@@ -40,10 +40,7 @@
                     <p class="text-muted text-center">Get your free Agroxa account now.</p>
 
                     <form id="SaveCreateUser" action="#" method="post" enctype="multipart/form-data">
-                        <div class="color-picker-inputs">
-
-                            @Html.HiddenFor(a => a.AdminID)
-                            @Html.HiddenFor(a => a.Image)
+                        <div class="color-picker-inputs"
 
                             <div class="form-group">
                                 <label>User Name</label>
@@ -61,22 +58,6 @@
                                 <label>Password</label>
                                 @Html.TextBoxFor(a => a.Password, new { @class = "form-control" })
                                 <span id="spPassword" style="display:none;color:red;font-size:small;">Please Enter Password</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label>RoleID</label>
-                                @Html.TextBoxFor(a => a.RoleID, new { @class = "form-control" })
-                                <span id="spRoleID" style="display:none;color:red;font-size:small;">Please Enter RoleID</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label">Status</label>
-                                @Html.DropDownListFor(a => a.StatusID, new List<SelectListItem>() {
-                               new SelectListItem(){Text = "--Select Item--" , Value="-1"},
-                               new SelectListItem(){Text = "Active" , Value="1"},
-                               new SelectListItem(){Text = "InActive" , Value="0"},
-                           }, new { @class = "form-control" })
-                                <span id="spStatus" style="display:none;color:red;font-size:small;">Please Enter Stauts</span>
                             </div>
 
                             <div class="form-group">
@@ -119,14 +100,13 @@
         });
 
 
-    $(document).ready(function () {
-            $(".dropify").dropify();
-     });
+   
 
 
 
         $("#btnSubmit").click(function (e) {
-            if (validate() == 6) {
+           
+            if (validate() == 4) {
                 SaveData();
             }
             else {
@@ -145,7 +125,7 @@
                 $("#spUserName").hide();
                 check++;
             }
-            if ($("#UserEmail").val() == "-1") {
+            if ($("#UserEmail").val() == "") {
                 $("#spUserEmail").show();
             }
             else {
@@ -159,29 +139,14 @@
                 $("#spPassword").hide();
                 check++;
             }
-            if ($("#RoleID").val() == "") {
-                $("#spRoleID").show();
+            if ($("#ImageFile").val() == "") {
+                $("#spImage").show();
             }
             else {
-                $("#spRoleID").hide();
+                $("#spImage").hide();
                 check++;
             }
-
-            if ($("#Status").val() == "") {
-                $("#spStatusID").show();
-            }
-            else {
-                $("#spStatusID").hide();
-                check++;
-            }
-
-            if ($("#Image").val() == "") {
-                $("#spImageFile").show();
-            }
-            else {
-                $("#spImageFile").hide();
-                check++;
-            }
+           
             return check;
         }
 
@@ -191,7 +156,7 @@
             event.preventDefault();
             var formData = new FormData(document.getElementById("SaveCreateUser"));
             $.ajax({
-                url: '@Url.Action("Save", "CreateUser")',
+                url: '@Url.Action("Save","CreateUser")',
                 data: formData,
                 dataType: 'json',
                 contentType: false,

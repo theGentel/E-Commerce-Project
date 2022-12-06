@@ -31,10 +31,10 @@ namespace E_Commerce.Models
         public virtual DbSet<tblStatus> tblStatus { get; set; }
         public virtual DbSet<tblSubCategory> tblSubCategory { get; set; }
         public virtual DbSet<tblCategory> tblCategory { get; set; }
-        public virtual DbSet<tblAdminRegister> tblAdminRegister { get; set; }
         public virtual DbSet<tblCart> tblCart { get; set; }
         public virtual DbSet<tblUserRegister> tblUserRegister { get; set; }
         public virtual DbSet<tblWishlist> tblWishlist { get; set; }
         public virtual DbSet<tblUserLogin> tblUserLogin { get; set; }
+        public virtual DbSet<tblAdminRegister> tblAdminRegister { get; set; }
     }
 }

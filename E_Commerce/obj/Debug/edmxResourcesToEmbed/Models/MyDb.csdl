@@ -29,6 +29,8 @@
     </Key>
     <Property Name="RolesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RolesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AdminID" Type="Int32" />
+    <NavigationProperty Name="tblAdminRegister" Relationship="E_CommerceDBModel.FK_tblRoles_tblAdminRegister" FromRole="tblRoles" ToRole="tblAdminRegister" />
   </EntityType>
   <EntityType Name="tblStatus">
     <Key>
@@ -54,11 +56,15 @@
     <EntitySet Name="tblStatus" EntityType="Self.tblStatus" />
     <EntitySet Name="tblSubCategory" EntityType="Self.tblSubCategory" />
     <EntitySet Name="tblCategory" EntityType="E_CommerceDBModel.tblCategory" />
-    <EntitySet Name="tblAdminRegister" EntityType="E_CommerceDBModel.tblAdminRegister" />
     <EntitySet Name="tblCart" EntityType="E_CommerceDBModel.tblCart" />
     <EntitySet Name="tblUserRegister" EntityType="E_CommerceDBModel.tblUserRegister" />
     <EntitySet Name="tblWishlist" EntityType="E_CommerceDBModel.tblWishlist" />
     <EntitySet Name="tblUserLogin" EntityType="E_CommerceDBModel.tblUserLogin" />
+    <EntitySet Name="tblAdminRegister" EntityType="E_CommerceDBModel.tblAdminRegister" />
+    <AssociationSet Name="FK_tblRoles_tblAdminRegister" Association="E_CommerceDBModel.FK_tblRoles_tblAdminRegister">
+      <End Role="tblAdminRegister" EntitySet="tblAdminRegister" />
+      <End Role="tblRoles" EntitySet="tblRoles" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tblCategory">
     <Key>
@@ -67,18 +73,6 @@
     <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Status" Type="Int32" />
-    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="tblAdminRegister">
-    <Key>
-      <PropertyRef Name="AdminID" />
-    </Key>
-    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="UserEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="RoleID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="StatusID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tblCart">
@@ -121,4 +115,29 @@
     <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="tblAdminRegister">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="StatusID" Type="Int32" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblRoles" Relationship="E_CommerceDBModel.FK_tblRoles_tblAdminRegister" FromRole="tblAdminRegister" ToRole="tblRoles" />
+  </EntityType>
+  <Association Name="FK_tblRoles_tblAdminRegister">
+    <End Type="E_CommerceDBModel.tblAdminRegister" Role="tblAdminRegister" Multiplicity="0..1" />
+    <End Type="E_CommerceDBModel.tblRoles" Role="tblRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAdminRegister">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tblRoles">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

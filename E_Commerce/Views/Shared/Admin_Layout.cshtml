@@ -95,11 +95,11 @@
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                     <!-- item-->
                                     <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
-                                    <a class="dropdown-item" href="@Url.Action("Login","Management")"><i class="mdi mdi-wallet m-r-5"></i> Create User</a>
+                                    <a class="dropdown-item" href="@Url.Action("CreateloginUser","CreateUser")"><i class="mdi mdi-wallet m-r-5"></i> Create New User</a>
                                     <a class="dropdown-item d-block" href="#"><span class="badge badge-success float-right">11</span><i class="mdi mdi-settings m-r-5"></i> Settings</a>
                                     <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5"></i> Lock screen</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item text-danger" href="#"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                                    <a class="dropdown-item text-danger" href="@Url.Action("Logout","CreateUser")"><i class="mdi mdi-power text-danger"></i> Logout</a>
                                 </div>
                             </div>
                         </li>
@@ -142,7 +142,7 @@
                         <li class="has-submenu">
                             <a href="@Url.Action("AddSubCategory","SubCategory")"><i class="mdi mdi-home"></i>AddSubCategory</a>
                         </li>
-                        
+
                         <li class="has-submenu">
                             <a href="@Url.Action("AddProduct","Product")"><i class="mdi mdi-home"></i>AddProduct</a>
                         </li>
@@ -208,6 +208,7 @@
         </div>
     </footer>
     <!-- End Footer -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- jQuery  -->
     <script src="/Content/assets/js/jquery.min.js"></script>
     <script src="/Content/assets/js/bootstrap.bundle.min.js"></script>

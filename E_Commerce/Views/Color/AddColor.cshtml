@@ -20,6 +20,7 @@
                                 <div class="form-group">
                                     <label>Color Name</label>
                                     @Html.TextBoxFor(a => a.ColorName, new { @class = "form-control" })
+                                    <span id="spColorName" style="display:none;color:red;font-size:small;">Please Enter ColorName</span>
                                 </div>
 
                                 <div class="form-group">
@@ -30,15 +31,17 @@
                                        new SelectListItem() {Text = "Active" , Value = "1"},
                                        new SelectListItem() {Text = "InActive" , Value = "0"},
                                     }, new { @class = "form-control" })
+                                    <span id="spStatus" style="display:none;color:red;font-size:small;">Please Enter Status</span>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Image</label>
                                     @Html.TextBoxFor(a => a.ImageFile, new { @class = " dropify", type = "file", data_default_file = "/dropify/noimage.png" })
+                                    <span id="spImage" style="display:none;color:red;font-size:small;">Please Enter Image</span>
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" id="AddColor" class=" btn btn-outline-primary">Save</button>
+                                    <button type="submit"  id="btnSubmit" class=" btn btn-outline-primary">Save</button>
                                 </div>
                             </form>
                         </div>
@@ -52,22 +55,16 @@
 </div>
 <!-- end page content-->
 <div class="wrapper">
-
     <!-- page-title-box -->
-
     <div class="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card m-b-20">
                         <div class="card-body">
-
                             <h2 class="mb-4 text-center">Color Datatable</h2>
-
                             <div id="divload">
-
                             </div>
-
                         </div>
                     </div>
                 </div> <!-- end col -->
@@ -85,7 +82,55 @@
         });
 
 
-        $('#AddColor').click(function (event) {
+        //function validate() {
+        //    if ($("#CategoryID").val() != "" && $("#SubCategoryID").val() != "" && $("#ProductName").val() != "" && $("#Status").val() != "" && $("#ImageFile").val() != "") {
+        //        SaveData()
+        //    }
+        //    else {
+        //        swal("Error", "Please fill all the required field!");             
+        //    }
+        //}
+
+
+        $("#btnSubmit").click(function (e) {
+            if (validate() == 3) {
+                SaveData();
+            }
+            else {
+                return false;
+            }
+        });
+
+
+        function validate() {
+          
+               var check = 0;
+               if ($("#ColorName").val() == "") {
+                   $("#spColorName").show();
+               }
+               else {
+                   $("#spColorName").hide();
+                   check++;
+               }
+                if ($("#Status").val() == "-1") {
+                   $("#spStatus").show();
+               }
+               else {
+                   $("#spStatus").hide();
+                   check++;
+               }
+                if ($("#ImageFile").val() == "") {
+                   $("#spImage").show();
+               }
+               else {
+                   $("#spImage").hide();
+                   check++;
+            }
+
+               return check;
+        }
+
+        function SaveData() {
                 event.preventDefault();
                 var formData = new FormData(document.getElementById("SaveColor"));
                 $.ajax({
@@ -97,16 +142,19 @@
                     type: 'POST',
                     success: function (res) {
                         if (res == 1) {
-                            alert("Data Saved");
+                            swal("Success!", "Successfully Save the Data", "success");
                             SubCategoryList();
                         }
+                        else if (res == 2) {
+                            swla("Warning!", "Sorry this Color Already Exist", "error");
+                        }
                         else {
-                            alert("something went wrong");
+                            swal("Oops!", "Something went gone wrong", "error");
                         }
                     }
                 });
                 return false;
-           });
+        }
 
 
         function SubCategoryList() {
@@ -121,14 +169,26 @@
         }
 
         function Delete(id, ImageName) {
-            $.ajax({
-                type: 'Post',
-                url: '@Url.Action("DeleteColor","Color")',
-                data: { id: id, ImageName: ImageName },
-                success: function (data) {
-                    if (data == 1) {
-                        SubCategoryList();
-                    }
+
+            swal({
+                title: "Are you Sure",
+                text: "Warning: This action cannnot be undone.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+
+                if (willDelete) {
+                    $.ajax({
+                        type: 'Post',
+                        url: '@Url.Action("DeleteColor","Color")',
+                        data: { id: id, ImageName: ImageName },
+                        success: function (data) {
+                            if (data == 1) {
+                                SubCategoryList();
+                            }
+                        }
+                    });
                 }
             });
         }

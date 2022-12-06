@@ -6,9 +6,11 @@ using System.Web.Mvc;
 
 namespace E_Commerce.Controllers
 {
+    [Authorize]
     public class SingleProductController : Controller
     {
         // GET: SingleProduct
+        [Route("AddSingleProduct")]
         public ActionResult AddSingleProduct()
         {
             return View();

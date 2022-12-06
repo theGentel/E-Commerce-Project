@@ -1,4 +1,4 @@
-﻿@model List<E_Commerce.Models.tblProduct>
+﻿@model List<E_Commerce.Models.ProductModel>
 
 <table id="tableProduct" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
     <thead>
@@ -19,15 +19,15 @@
         @foreach (var item in Model)
         {
         <tr>
-            <td>@item.CategoryID</td>
-            <td>@item.SubCategoryID</td>
+            <td>@item.CategoryName</td>
+            <td>@item.SubCategoryName</td>
             <td>@item.ProductName</td>
-            <td>@item.ColorID</td>
+            <td>@item.ColorName</td>
             <td>@item.Quantity</td>
             <td>@item.Price</td>
-            <td>@item.Status</td>
+            <td>@item.StatusName</td>
             <td><img src="@item.Image" width="100" height="100" /></td>
-            <td><button class="btn btn-outline-primary" onclick="Edit(@item.ProdutID)" type="button">Edit</button> | | <button class="btn btn-outline-danger" onclick="Delete(@item.ProdutID,'@item.Image')" type="button">Delete</button></td>
+            <td><button class="btn btn-outline-primary" onclick="Edit(@item.ProductID)" type="button">Edit</button> | | <button class="btn btn-outline-danger" onclick="Delete(@item.ProductID,'@item.Image')" type="button">Delete</button></td>
             </tr>
         }
     </tbody>

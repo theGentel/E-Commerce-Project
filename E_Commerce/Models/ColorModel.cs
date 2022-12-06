@@ -10,6 +10,7 @@ namespace E_Commerce.Models
         public int ColorID { get; set; }
         public string ColorName { get; set; }
         public int Status { get; set; }
+        public string StatusName { get; set; }
         public string Image { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
     }

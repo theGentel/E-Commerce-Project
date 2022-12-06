@@ -29,6 +29,7 @@
     <EntitySetMapping Name="tblRoles">
       <EntityTypeMapping TypeName="E_CommerceDBModel.tblRoles">
         <MappingFragment StoreEntitySet="tblRoles">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
           <ScalarProperty Name="RolesID" ColumnName="RolesID" />
           <ScalarProperty Name="RolesName" ColumnName="RolesName" />
         </MappingFragment>
@@ -60,19 +61,6 @@
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
           <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tblAdminRegister">
-      <EntityTypeMapping TypeName="E_CommerceDBModel.tblAdminRegister">
-        <MappingFragment StoreEntitySet="tblAdminRegister">
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -117,6 +105,19 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAdminRegister">
+      <EntityTypeMapping TypeName="E_CommerceDBModel.tblAdminRegister">
+        <MappingFragment StoreEntitySet="tblAdminRegister">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

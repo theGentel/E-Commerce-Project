@@ -13,8 +13,8 @@
           <Property Name="UserName" Type="varchar(max)" />
           <Property Name="UserEmail" Type="varchar(max)" />
           <Property Name="Password" Type="varchar(max)" />
-          <Property Name="RoleID" Type="varchar(max)" />
-          <Property Name="StatusID" Type="varchar(max)" />
+          <Property Name="RoleID" Type="int" />
+          <Property Name="StatusID" Type="int" />
           <Property Name="Image" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="tblCart">
@@ -66,6 +66,7 @@
           </Key>
           <Property Name="RolesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RolesName" Type="varchar(max)" />
+          <Property Name="AdminID" Type="int" />
         </EntityType>
         <EntityType Name="tblStatus">
           <Key>
@@ -113,6 +114,18 @@
           <Property Name="Status" Type="nvarchar(max)" />
           <Property Name="Image" Type="varchar(max)" />
         </EntityType>
+        <Association Name="FK_tblRoles_tblAdminRegister">
+          <End Role="tblAdminRegister" Type="Self.tblAdminRegister" Multiplicity="0..1" />
+          <End Role="tblRoles" Type="Self.tblRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAdminRegister">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="tblRoles">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="E_CommerceDBModelStoreContainer">
           <EntitySet Name="tblAdminRegister" EntityType="Self.tblAdminRegister" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCart" EntityType="Self.tblCart" Schema="dbo" store:Type="Tables" />
@@ -125,6 +138,10 @@
           <EntitySet Name="tblUserLogin" EntityType="Self.tblUserLogin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserRegister" EntityType="Self.tblUserRegister" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblWishlist" EntityType="Self.tblWishlist" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblRoles_tblAdminRegister" Association="Self.FK_tblRoles_tblAdminRegister">
+            <End Role="tblAdminRegister" EntitySet="tblAdminRegister" />
+            <End Role="tblRoles" EntitySet="tblRoles" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -159,6 +176,8 @@
           </Key>
           <Property Name="RolesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RolesName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdminID" Type="Int32" />
+          <NavigationProperty Name="tblAdminRegister" Relationship="E_CommerceDBModel.FK_tblRoles_tblAdminRegister" FromRole="tblRoles" ToRole="tblAdminRegister" />
         </EntityType>
         <EntityType Name="tblStatus">
           <Key>
@@ -184,11 +203,15 @@
           <EntitySet Name="tblStatus" EntityType="Self.tblStatus" />
           <EntitySet Name="tblSubCategory" EntityType="Self.tblSubCategory" />
           <EntitySet Name="tblCategory" EntityType="E_CommerceDBModel.tblCategory" />
-          <EntitySet Name="tblAdminRegister" EntityType="E_CommerceDBModel.tblAdminRegister" />
           <EntitySet Name="tblCart" EntityType="E_CommerceDBModel.tblCart" />
           <EntitySet Name="tblUserRegister" EntityType="E_CommerceDBModel.tblUserRegister" />
           <EntitySet Name="tblWishlist" EntityType="E_CommerceDBModel.tblWishlist" />
           <EntitySet Name="tblUserLogin" EntityType="E_CommerceDBModel.tblUserLogin" />
+          <EntitySet Name="tblAdminRegister" EntityType="E_CommerceDBModel.tblAdminRegister" />
+          <AssociationSet Name="FK_tblRoles_tblAdminRegister" Association="E_CommerceDBModel.FK_tblRoles_tblAdminRegister">
+            <End Role="tblAdminRegister" EntitySet="tblAdminRegister" />
+            <End Role="tblRoles" EntitySet="tblRoles" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tblCategory">
           <Key>
@@ -197,18 +220,6 @@
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="Int32" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="tblAdminRegister">
-          <Key>
-            <PropertyRef Name="AdminID" />
-          </Key>
-          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="UserEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="RoleID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="StatusID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tblCart">
@@ -251,6 +262,31 @@
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="tblAdminRegister">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="StatusID" Type="Int32" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblRoles" Relationship="E_CommerceDBModel.FK_tblRoles_tblAdminRegister" FromRole="tblAdminRegister" ToRole="tblRoles" />
+        </EntityType>
+        <Association Name="FK_tblRoles_tblAdminRegister">
+          <End Type="E_CommerceDBModel.tblAdminRegister" Role="tblAdminRegister" Multiplicity="0..1" />
+          <End Type="E_CommerceDBModel.tblRoles" Role="tblRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblAdminRegister">
+              <PropertyRef Name="AdminID" />
+            </Principal>
+            <Dependent Role="tblRoles">
+              <PropertyRef Name="AdminID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -285,6 +321,7 @@
           <EntitySetMapping Name="tblRoles">
             <EntityTypeMapping TypeName="E_CommerceDBModel.tblRoles">
               <MappingFragment StoreEntitySet="tblRoles">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
                 <ScalarProperty Name="RolesID" ColumnName="RolesID" />
                 <ScalarProperty Name="RolesName" ColumnName="RolesName" />
               </MappingFragment>
@@ -316,19 +353,6 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblAdminRegister">
-            <EntityTypeMapping TypeName="E_CommerceDBModel.tblAdminRegister">
-              <MappingFragment StoreEntitySet="tblAdminRegister">
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -373,6 +397,19 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="UserLoginID" ColumnName="UserLoginID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAdminRegister">
+            <EntityTypeMapping TypeName="E_CommerceDBModel.tblAdminRegister">
+              <MappingFragment StoreEntitySet="tblAdminRegister">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

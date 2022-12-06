@@ -7,9 +7,11 @@ using System.Web.Mvc;
 
 namespace E_Commerce.Controllers
 {
+    [Authorize]
     public class UserLoginController : Controller
     {
         // GET: UserLogin
+        [Route("Login")]
         public ActionResult Login()
         {
             return View();
